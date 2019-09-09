@@ -9,7 +9,7 @@ class Application(models.Model):
     company_name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
     date_applied = models.DateField(
-        default=date.today().strftime("%m/%d/%y"), blank=True)
+        default=date.today(), blank=True)
     application_id = models.CharField(blank=True, max_length=100)
     application_url = models.URLField(blank=True, unique=True)
     application_status = models.CharField(max_length=25)
