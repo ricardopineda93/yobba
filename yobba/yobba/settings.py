@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'yobba.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_pyscopg2',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'yobba',
         'USER': '',
         'PASSWORD': '',
