@@ -18,6 +18,7 @@ class Application(models.Model):
     company_contact_email = models.EmailField(blank=True)
     company_contact_phone = models.CharField(blank=True, max_length=25)
     notes = models.TextField(blank=True)
+    location = models.TextField(blank=True)
     # owner = models.ForeignKey(
     #     User, related_name='applications', on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

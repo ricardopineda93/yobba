@@ -4,6 +4,7 @@ export default class Form extends Component {
   state = {
     companyName: '',
     position: '',
+    location: '',
     dateApplied: new Date().toISOString().substr(0, 10),
     applicationId: '',
     applicationURL: '',
@@ -22,6 +23,7 @@ export default class Form extends Component {
     const {
       companyName,
       position,
+      location,
       dateApplied,
       applicationId,
       applicationURL,
@@ -36,6 +38,7 @@ export default class Form extends Component {
     const applicationInfo = {
       companyName,
       position,
+      location,
       dateApplied,
       applicationId,
       applicationURL,
@@ -52,6 +55,7 @@ export default class Form extends Component {
     this.setState({
       companyName: '',
       position: '',
+      location: '',
       dateApplied: new Date().toISOString().substr(0, 10),
       applicationId: '',
       applicationURL: '',
@@ -68,6 +72,7 @@ export default class Form extends Component {
     const {
       companyName,
       position,
+      location,
       dateApplied,
       applicationId,
       applicationURL,
@@ -102,6 +107,16 @@ export default class Form extends Component {
               onChange={this.onChange}
               value={position}
               required
+            />
+          </div>
+          <div className="form-group">
+            <label>Location</label>
+            <input
+              className="form-control"
+              type="text"
+              name="location"
+              onChange={this.onChange}
+              value={location}
             />
           </div>
           <div className="form-group">
