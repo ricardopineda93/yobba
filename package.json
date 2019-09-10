@@ -5,6 +5,10 @@
   "repository": "https://github.com/ricardopineda93/yobba.git",
   "author": "Ricardo Pineda <richay718@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "webpack --mode development ./yobba/frontend/src/index.js --output ./yobba/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./yobba/frontend/src/index.js --output ./yobba/frontend/static/frontend/main.js"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
