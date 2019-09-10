@@ -1,0 +1,17 @@
+/* .card-container {
+	margin-bottom: 8px
+} */
+
+.list-container {
+  background-color: #dfe3e6;
+  border-radius: 3px;
+  width: 300px;
+  padding: 8px;
+  margin-right: 8px;
+}
+
+.board-lists-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
