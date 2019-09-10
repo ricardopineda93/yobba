@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './layout/Header';
+import Board from './applications/Board';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <Header />
-        <h3>Content here, please!</h3>
-      </div>
+        <Board />
+      </Fragment>
     );
   }
 }
