@@ -6,7 +6,7 @@
   "author": "Ricardo Pineda <richay718@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack --mode development ./yobba/frontend/src/index.js --output ./yobba/frontend/static/frontend/main.js",
+    "dev": "webpack --mode development --watch ./yobba/frontend/src/index.js --output ./yobba/frontend/static/frontend/main.js",
     "build": "webpack --mode production ./yobba/frontend/src/index.js --output ./yobba/frontend/static/frontend/main.js"
   },
   "devDependencies": {
@@ -21,6 +21,8 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.0.1"
   }
 }

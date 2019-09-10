@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import Header from './layout/Header';
+
 export default class App extends Component {
   render() {
     return (
       <div>
-        <h1>yobba.</h1>
+        <Header />
+        <h3>Content here, please!</h3>
       </div>
     );
   }
