@@ -1,5 +1,6 @@
 import React from 'react';
 import AppCard from './AppCard';
+import ActionButton from './ActionButton';
 
 const StatusList = ({ title, applications }) => {
   return (
@@ -8,6 +9,7 @@ const StatusList = ({ title, applications }) => {
       {applications.map(application => (
         <AppCard application={application} key={application.id} />
       ))}
+      <ActionButton />
     </div>
   );
 };

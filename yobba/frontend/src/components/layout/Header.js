@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export default class Header extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">
           <button
             className="navbar-toggler"

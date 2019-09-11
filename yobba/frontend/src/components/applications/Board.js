@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import StatusList from './StatusList';
 import Form from './Form';
+import ActionButton from './ActionButton';
 
 function Board(props) {
   const { lists } = props;
@@ -17,8 +18,9 @@ function Board(props) {
             key={list.id}
           />
         ))}
+        <ActionButton className="list-container" list />
       </div>
-      <Form />
+      {/* <Form /> */}
     </Fragment>
   );
 }
