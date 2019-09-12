@@ -3,9 +3,10 @@ import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
 import TextArea from 'react-textarea-autosize';
 import FormModal from './FormModal';
-import Form from './Form';
+import { connect } from 'react-redux';
+import { addStatusList } from '../../actions';
 
-export default class ActionButton extends Component {
+class ActionButton extends Component {
   state = {
     formOpen: false,
     text: ''
@@ -62,7 +63,23 @@ export default class ActionButton extends Component {
     });
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleAddList = e => {
+    const { dispatch } = this.props;
+    const { text } = this.state;
+
+    if (text) {
+      dispatch(addStatusList(text));
+      this.setState({ text: '' });
+    }
+
+    return;
+  };
+
+  handleInputChange = e => {
+    this.setState({
+      text: e.target.value
+    });
+  };
 
   renderForm = () => {
     const { list } = this.props;
@@ -105,7 +122,7 @@ export default class ActionButton extends Component {
               <button
                 type="button"
                 className="btn btn-primary"
-                onSubmit={this.onSubmit}
+                onMouseDown={this.handleAddList}
               >
                 {buttonTitle}{' '}
               </button>
@@ -117,7 +134,7 @@ export default class ActionButton extends Component {
           </>
         ) : (
           <>
-            <FormModal />
+            <FormModal listId={this.props.listId} />
             <button
               type="button"
               data-toggle="modal"
@@ -146,3 +163,5 @@ export default class ActionButton extends Component {
     );
   }
 }
+
+export default connect()(ActionButton);

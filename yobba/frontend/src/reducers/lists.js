@@ -1,3 +1,9 @@
+/* eslint-disable no-case-declarations */
+import { CONSTANTS } from '../actions';
+
+let listId = 4;
+let applicationId = 12;
+
 const initialState = [
   {
     title: 'Application Sent',
@@ -191,6 +197,25 @@ const initialState = [
 
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CONSTANTS.ADD_STATUS_LIST:
+      const newList = { title: action.payload, applications: [], id: listId };
+      listId++;
+      return [...state, newList];
+    case CONSTANTS.ADD_APPLICATION:
+      const newApplication = {
+        id: applicationId,
+        ...action.payload.data
+      };
+      applicationId++;
+      const newState = state.map(list => {
+        if (list.id === action.payload.listId) {
+          return {
+            ...list,
+            applications: [...list.applications, newApplication]
+          };
+        } else return list;
+      });
+      return newState;
     default:
       return state;
   }

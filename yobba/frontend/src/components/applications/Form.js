@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-export default class Form extends Component {
+import { connect } from 'react-redux';
+import { addApplication } from '../../actions';
+
+class Form extends Component {
   state = {
     companyName: '',
     position: '',
@@ -8,11 +11,8 @@ export default class Form extends Component {
     dateApplied: new Date().toISOString().substr(0, 10),
     applicationId: '',
     applicationURL: '',
-    applicationStatus: 'Application Sent',
     priorityLevel: 'Neutral',
-    companyContactName: '',
     companyContactEmail: '',
-    companyContactPhone: '',
     notes: ''
   };
 
@@ -20,37 +20,10 @@ export default class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const {
-      companyName,
-      position,
-      location,
-      dateApplied,
-      applicationId,
-      applicationURL,
-      applicationStatus,
-      priorityLevel,
-      companyContactName,
-      companyContactEmail,
-      companyContactPhone,
-      notes
-    } = this.state;
 
-    const applicationInfo = {
-      companyName,
-      position,
-      location,
-      dateApplied,
-      applicationId,
-      applicationURL,
-      applicationStatus,
-      priorityLevel,
-      companyContactName,
-      companyContactEmail,
-      companyContactPhone,
-      notes
-    };
+    const { dispatch } = this.props;
 
-    console.log(applicationInfo);
+    dispatch(addApplication(this.props.listId, { ...this.state }));
 
     this.setState({
       companyName: '',
@@ -59,11 +32,8 @@ export default class Form extends Component {
       dateApplied: new Date().toISOString().substr(0, 10),
       applicationId: '',
       applicationURL: '',
-      applicationStatus: 'Application Sent',
       priorityLevel: 'Neutral',
-      companyContactName: '',
       companyContactEmail: '',
-      companyContactPhone: '',
       notes: ''
     });
   };
@@ -180,9 +150,16 @@ export default class Form extends Component {
               value={notes}
             />
           </div>
-          <div className="form-group">
+          <div className="modal-footer">
+            <button
+              type="button"
+              className="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
             <button type="submit" className="btn btn-primary">
-              Submit
+              Save Application
             </button>
           </div>
         </form>
@@ -190,3 +167,5 @@ export default class Form extends Component {
     );
   }
 }
+
+export default connect()(Form);

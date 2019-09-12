@@ -15,6 +15,7 @@ function Board(props) {
             title={list.title}
             applications={list.applications}
             key={list.id}
+            listId={list.id}
           />
         ))}
         <ActionButton className="list-container" list />

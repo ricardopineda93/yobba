@@ -28,19 +28,7 @@ const FormModal = props => {
             </button>
           </div>
           <div className="modal-body">
-            <Form />
-          </div>
-          <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" className="btn btn-primary">
-              Save Application
-            </button>
+            <Form listId={props.listId} />
           </div>
         </div>
       </div>
