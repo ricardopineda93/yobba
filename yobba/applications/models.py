@@ -12,11 +12,8 @@ class Application(models.Model):
         default=date.today(), blank=True)
     application_id = models.CharField(blank=True, max_length=100)
     application_url = models.URLField(blank=True, unique=True)
-    application_status = models.CharField(max_length=25)
     priority_level = models.CharField(max_length=25)
-    company_contact_name = models.CharField(blank=True, max_length=100)
     company_contact_email = models.EmailField(blank=True)
-    company_contact_phone = models.CharField(blank=True, max_length=25)
     notes = models.TextField(blank=True)
     location = models.TextField(blank=True)
     # owner = models.ForeignKey(

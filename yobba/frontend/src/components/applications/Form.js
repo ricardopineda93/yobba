@@ -76,16 +76,13 @@ export default class Form extends Component {
       dateApplied,
       applicationId,
       applicationURL,
-      applicationStatus,
       priorityLevel,
-      companyContactName,
       companyContactEmail,
-      companyContactPhone,
       notes
     } = this.state;
     return (
       <div className="card card-body mt-4 mb-4">
-        <h2>Add Application</h2>
+        {/* <h2>Add Application</h2>s */}
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Company Name*</label>
@@ -150,23 +147,6 @@ export default class Form extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Application Status</label>
-            <select
-              className="form-control"
-              required
-              name="applicationStatus"
-              onChange={this.onChange}
-              value={applicationStatus}
-            >
-              <option value="Application Sent">Application Sent</option>
-              <option value="Phone Screen">Phone Screen</option>
-              <option value="Technical Assessment">Technical Assessment</option>
-              <option value="Behavioral Interview">Behavioral Interview</option>
-              <option value="Final Rounds">Final Rounds</option>
-              <option value="Graveyeard">Graveyeard</option>
-            </select>
-          </div>
-          <div className="form-group">
             <label>Priority Level</label>
             <select
               className="form-control"
@@ -181,16 +161,6 @@ export default class Form extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Company Contact Name</label>
-            <input
-              className="form-control"
-              type="text"
-              name="companyContactName"
-              onChange={this.onChange}
-              value={companyContactName}
-            />
-          </div>
-          <div className="form-group">
             <label>Company Contact Email</label>
             <input
               className="form-control"
@@ -199,20 +169,6 @@ export default class Form extends Component {
               onChange={this.onChange}
               value={companyContactEmail}
             />
-          </div>
-          <div className="form-group">
-            <label>Company Contact Phone</label>
-            <input
-              className="form-control"
-              type="tel"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              name="companyContactPhone"
-              onChange={this.onChange}
-              value={companyContactPhone}
-            />
-            <i>
-              <small>Format: 123-456-6789</small>
-            </i>
           </div>
           <div className="form-group">
             <label>Notes</label>

@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import StatusList from './StatusList';
-import Form from './Form';
 import ActionButton from './ActionButton';
 
 function Board(props) {
@@ -20,7 +19,6 @@ function Board(props) {
         ))}
         <ActionButton className="list-container" list />
       </div>
-      {/* <Form /> */}
     </Fragment>
   );
 }
