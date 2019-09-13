@@ -1,4 +1,5 @@
 from django.db import models
+from lists.models import List
 # from django.contrib.auth.models import User
 from datetime import date
 
@@ -16,6 +17,9 @@ class Application(models.Model):
     company_contact_email = models.EmailField(blank=True)
     notes = models.TextField(blank=True)
     location = models.TextField(blank=True)
+    status_list = models.ForeignKey(
+        List, related_name='lists', on_delete=models.CASCADE, null=True
+    )
     # owner = models.ForeignKey(
     #     User, related_name='applications', on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
