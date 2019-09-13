@@ -7,167 +7,127 @@ let applicationId = 12;
 const initialState = [
   {
     title: 'Application Sent',
-    id: 0,
+    id: `list-${0}`,
     applications: [
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
+        id: `application-${0}`,
+        companyName: 'Spotify',
         position: 'Web Engineer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
-        priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
+        priorityLevel: 'High',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       },
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${1}`,
+        companyName: 'Etsy',
+        position: 'Front End Developer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       }
     ]
   },
   {
     title: 'Phone Screen',
-    id: 1,
+    id: `list-${1}`,
     applications: [
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${2}`,
+        companyName: 'PacSun',
+        position: 'Brand Content Engineer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       }
     ]
   },
   {
     title: 'Technical Assessment',
-    id: 2,
+    id: `list-${2}`,
     applications: [
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${3}`,
+        companyName: 'Capital One',
+        position: 'Data Team Engineer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       },
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${4}`,
+        companyName: 'Foursquare',
+        position: 'Client Solutions Engineer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       },
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${5}`,
+        companyName: 'E&Y',
+        position: 'Jr. Web Developer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       }
     ]
   },
   {
     title: 'Behavioral Interview',
-    id: 2,
+    id: `list-${3}`,
     applications: [
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${6}`,
+        companyName: 'Chase',
+        position: 'Security Engineer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       }
     ]
   },
   {
     title: 'Final Rounds',
-    id: 3,
+    id: `list-${4}`,
     applications: [
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${7}`,
+        companyName: 'Kinetik',
+        position: 'Software Engineer',
         dateApplied: '2019-09-10',
         location: 'New York',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       }
     ]
   },
@@ -176,20 +136,15 @@ const initialState = [
     id: 4,
     applications: [
       {
-        id: 3,
-        companyName: 'Morgan Stanley',
-        position: 'Web Engineer',
+        id: `application-${8}`,
+        companyName: 'System',
+        position: 'Front End Engineer',
         dateApplied: '2019-09-10',
         applicationId: 'mgs1',
         applicationURL: 'https://morgan.stanley/applicatication/mgs1',
-        applicationStatus: 'Application Sent',
         priorityLevel: 'Neutral',
-        companyContactName: 'Jane Doe',
         companyContactEmail: 'jane@doe.com',
-        companyContactPhone: '717-231-4455',
-        notes: 'This job would be dope!',
-        createdAt: '2019-09-10T14:53:37.360640Z',
-        updatedAt: '2019-09-10T14:53:37.360784Z'
+        notes: 'This job would be dope!'
       }
     ]
   }
@@ -198,12 +153,16 @@ const initialState = [
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
     case CONSTANTS.ADD_STATUS_LIST:
-      const newList = { title: action.payload, applications: [], id: listId };
+      const newList = {
+        title: action.payload,
+        applications: [],
+        id: `list-${listId}`
+      };
       listId++;
       return [...state, newList];
     case CONSTANTS.ADD_APPLICATION:
       const newApplication = {
-        id: applicationId,
+        id: `application-${applicationId}`,
         ...action.payload.data
       };
       applicationId++;

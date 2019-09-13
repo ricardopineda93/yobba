@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import StatusList from './StatusList';
 import ActionButton from './ActionButton';
@@ -7,8 +8,12 @@ import ActionButton from './ActionButton';
 function Board(props) {
   const { lists } = props;
 
+  const onDragEnd = () => {
+    return;
+  };
+
   return (
-    <Fragment>
+    <DragDropContext onDragEnd={onDragEnd}>
       <div className="board-lists-container">
         {lists.map(list => (
           <StatusList
@@ -20,7 +25,7 @@ function Board(props) {
         ))}
         <ActionButton className="list-container" list />
       </div>
-    </Fragment>
+    </DragDropContext>
   );
 }
 
