@@ -6,7 +6,9 @@ from .serializers import ApplicationSerializer
 
 
 class ApplicationViewSet(viewsets.ModelViewSet):
+
     queryset = Application.objects.all()
+
     permission_classes = [
         permissions.AllowAny
     ]

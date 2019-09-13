@@ -1,7 +1,8 @@
 from rest_framework import routers
-from .api import ListViewSet
+from .api import AllListsViewSet
 
 router = routers.DefaultRouter()
-router.register('api/lists', ListViewSet, 'lists')
+router.register('api/lists', AllListsViewSet, 'lists')
+
 
 urlpatterns = router.urls
