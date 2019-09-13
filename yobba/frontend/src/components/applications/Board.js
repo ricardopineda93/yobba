@@ -4,12 +4,27 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import StatusList from './StatusList';
 import ActionButton from './ActionButton';
+import { sort } from '../../actions';
 
 function Board(props) {
   const { lists } = props;
 
-  const onDragEnd = () => {
-    return;
+  const onDragEnd = result => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    props.dispatch(
+      sort(
+        source.droppableId,
+        destination.droppableId,
+        source.index,
+        destination.index,
+        draggableId
+      )
+    );
   };
 
   return (

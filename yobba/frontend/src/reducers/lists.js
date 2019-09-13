@@ -160,7 +160,9 @@ const listsReducer = (state = initialState, action) => {
       };
       listId++;
       return [...state, newList];
-    case CONSTANTS.ADD_APPLICATION:
+    // Need to wrap in squigglies or else we get an arg name error with other case
+    // newState const naming
+    case CONSTANTS.ADD_APPLICATION: {
       const newApplication = {
         id: `application-${applicationId}`,
         ...action.payload.data
@@ -174,6 +176,25 @@ const listsReducer = (state = initialState, action) => {
           };
         } else return list;
       });
+      return newState;
+    }
+    case CONSTANTS.DRAG_HAPPENED:
+      const {
+        droppableIdStart,
+        droppableIdEnd,
+        droppableIndexStart,
+        droppableIndexEnd,
+        draggableId
+      } = action.payload;
+
+      const newState = [...state];
+
+      // Handling case if in same list...
+      if (droppableIdStart === droppableIdEnd) {
+        const list = state.find(list => droppableIdStart === list.id);
+        const application = list.applications.splice(droppableIndexStart, 1);
+        list.applications.splice(droppableIndexEnd, 0, ...application);
+      }
       return newState;
     default:
       return state;
