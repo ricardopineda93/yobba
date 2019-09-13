@@ -1,31 +1,38 @@
 import React from 'react';
 import AppCard from './AppCard';
 import ActionButton from './ActionButton';
-import { Droppable } from 'react-beautiful-dnd';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
 
-const StatusList = ({ title, applications, listId }) => {
+const StatusList = ({ title, applications, listId, index }) => {
   return (
-    <Droppable droppableId={String(listId)}>
+    <Draggable draggableId={String(listId)} index={index}>
       {provided => (
         <div
           className="list-container"
-          {...provided.droppableProps}
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
           ref={provided.innerRef}
         >
-          <h4>{title}</h4>
-          {applications.map((application, index) => (
-            <AppCard
-              application={application}
-              key={application.id}
-              id={application.id}
-              index={index}
-            />
-          ))}
-          <ActionButton listId={listId} />
-          {provided.placeholder}
+          <Droppable droppableId={String(listId)}>
+            {provided => (
+              <div {...provided.droppableProps} ref={provided.innerRef}>
+                <h4>{title}</h4>
+                {applications.map((application, index) => (
+                  <AppCard
+                    application={application}
+                    key={application.id}
+                    id={application.id}
+                    index={index}
+                  />
+                ))}
+                {provided.placeholder}
+                <ActionButton listId={listId} />
+              </div>
+            )}
+          </Droppable>
         </div>
       )}
-    </Droppable>
+    </Draggable>
   );
 };
 
