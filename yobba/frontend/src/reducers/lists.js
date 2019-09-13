@@ -133,7 +133,7 @@ const initialState = [
   },
   {
     title: 'Graveyard',
-    id: 4,
+    id: `list-${5}`,
     applications: [
       {
         id: `application-${8}`,
@@ -219,7 +219,7 @@ const listsReducer = (state = initialState, action) => {
         const listEnd = state.find(list => droppableIdEnd === list.id);
 
         // Placing card in new list
-        listEnd.cards.splice(droppableIndexEnd, 0, ...applicatication);
+        listEnd.applications.splice(droppableIndexEnd, 0, ...applicatication);
       }
 
       return newState;
