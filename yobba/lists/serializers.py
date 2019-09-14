@@ -12,4 +12,4 @@ class ListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = List
-        fields = ('title', 'applications', 'list_id')
+        fields = ('id', 'title', 'applications', 'list_id')
