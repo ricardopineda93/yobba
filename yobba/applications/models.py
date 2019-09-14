@@ -18,7 +18,7 @@ class Application(models.Model):
     notes = models.TextField(blank=True)
     location = models.TextField(blank=True)
     status_list = models.ForeignKey(
-        List, related_name='lists', on_delete=models.CASCADE, null=True
+        List, related_name='applications', on_delete=models.CASCADE, null=True
     )
     # owner = models.ForeignKey(
     #     User, related_name='applications', on_delete=models.CASCADE, null=True)
