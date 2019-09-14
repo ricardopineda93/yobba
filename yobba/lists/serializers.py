@@ -8,7 +8,8 @@ from applications.serializers import ApplicationSerializer
 class ListSerializer(serializers.ModelSerializer):
 
     applications = ApplicationSerializer(read_only=True, many=True)
+    list_id = serializers.CharField(read_only=True)
 
     class Meta:
         model = List
-        fields = ('title', 'applications',)
+        fields = ('title', 'applications', 'list_id')

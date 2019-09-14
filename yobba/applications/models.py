@@ -7,6 +7,7 @@ from datetime import date
 
 
 class Application(models.Model):
+    id = models.AutoField(primary_key=True)
     company_name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
     date_applied = models.DateField(
@@ -24,3 +25,6 @@ class Application(models.Model):
     #     User, related_name='applications', on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def application_id(self):
+        return 'application-' + str(self.id)

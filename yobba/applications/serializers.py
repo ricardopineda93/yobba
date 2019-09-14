@@ -6,6 +6,10 @@ from applications.models import Application
 
 class ApplicationSerializer(serializers.ModelSerializer):
 
+    application_id = serializers.CharField(read_only=True)
+
     class Meta:
         model = Application
-        fields = ('__all__')
+        fields = ('id', 'company_name', 'position', 'date_applied', 'application_id',
+                  'application_url', 'priority_level', 'company_contact_email', 'notes', 'location',
+                  'status_list', 'application_id')
