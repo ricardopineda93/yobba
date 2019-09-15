@@ -5,6 +5,8 @@ from datetime import date
 
 # Create your models here.
 
+# What the app's database looks like.
+
 
 class Application(models.Model):
     id = models.AutoField(primary_key=True)

@@ -4,6 +4,9 @@ from .serializers import ApplicationSerializer
 
 # Application Viewset
 
+# This is responsible for what is returned from the URL specified.
+# It is literally the API part of the app for this whole app.
+
 
 class ApplicationViewSet(viewsets.ModelViewSet):
 
