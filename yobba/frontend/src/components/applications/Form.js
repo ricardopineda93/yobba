@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
@@ -5,14 +6,14 @@ import { addApplication } from '../../actions';
 
 class Form extends Component {
   state = {
-    companyName: '',
+    company_name: '',
     position: '',
     location: '',
-    dateApplied: new Date().toISOString().substr(0, 10),
-    applicationId: '',
-    applicationURL: '',
-    priorityLevel: 'Neutral',
-    companyContactEmail: '',
+    date_applied: new Date().toISOString().substr(0, 10),
+    application_id: '',
+    application_url: '',
+    priority_level: 'Neutral',
+    company_contact_email: '',
     notes: ''
   };
 
@@ -23,31 +24,36 @@ class Form extends Component {
 
     const { dispatch } = this.props;
 
-    dispatch(addApplication(this.props.listId, { ...this.state }));
+    const newApplication = {
+      ...this.state,
+      status_list: this.props.listId.split('-')[1]
+    };
+
+    dispatch(addApplication(this.props.listId, newApplication));
 
     this.setState({
-      companyName: '',
+      company_name: '',
       position: '',
       location: '',
-      dateApplied: new Date().toISOString().substr(0, 10),
-      applicationId: '',
-      applicationURL: '',
-      priorityLevel: 'Neutral',
-      companyContactEmail: '',
+      date_applied: new Date().toISOString().substr(0, 10),
+      application_id: '',
+      application_url: '',
+      priority_level: 'Neutral',
+      company_contact_email: '',
       notes: ''
     });
   };
 
   render() {
     const {
-      companyName,
+      company_name,
       position,
       location,
-      dateApplied,
-      applicationId,
-      applicationURL,
-      priorityLevel,
-      companyContactEmail,
+      date_applied,
+      application_id,
+      application_url,
+      priority_level,
+      company_contact_email,
       notes
     } = this.state;
     return (
@@ -59,9 +65,9 @@ class Form extends Component {
             <input
               className="form-control"
               type="text"
-              name="companyName"
+              name="company_name"
               onChange={this.onChange}
-              value={companyName}
+              value={company_name}
               required
             />
           </div>
@@ -91,9 +97,9 @@ class Form extends Component {
             <input
               className="form-control"
               type="date"
-              name="dateApplied"
+              name="date_applied"
               onChange={this.onChange}
-              value={dateApplied}
+              value={date_applied}
             />
           </div>
           <div className="form-group">
@@ -101,9 +107,9 @@ class Form extends Component {
             <input
               className="form-control"
               type="text"
-              name="applicationId"
+              name="application_id"
               onChange={this.onChange}
-              value={applicationId}
+              value={application_id}
             />
           </div>
           <div className="form-group">
@@ -111,9 +117,9 @@ class Form extends Component {
             <input
               className="form-control"
               type="url"
-              name="applicationURL"
+              name="application_url"
               onChange={this.onChange}
-              value={applicationURL}
+              value={application_url}
             />
           </div>
           <div className="form-group">
@@ -121,9 +127,9 @@ class Form extends Component {
             <select
               className="form-control"
               required
-              name="priorityLevel"
+              name="priority_level"
               onChange={this.onChange}
-              value={priorityLevel}
+              value={priority_level}
             >
               <option value="High">High</option>
               <option value="Neutral">Neutral</option>
@@ -135,9 +141,9 @@ class Form extends Component {
             <input
               className="form-control"
               type="email"
-              name="companyContactEmail"
+              name="company_contact_email"
               onChange={this.onChange}
-              value={companyContactEmail}
+              value={company_contact_email}
             />
           </div>
           <div className="form-group">

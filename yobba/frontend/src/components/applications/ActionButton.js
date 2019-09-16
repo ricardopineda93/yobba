@@ -9,7 +9,7 @@ import { addStatusList } from '../../actions';
 class ActionButton extends Component {
   state = {
     formOpen: false,
-    text: ''
+    title: ''
   };
 
   renderAddButton = () => {
@@ -64,12 +64,12 @@ class ActionButton extends Component {
   };
 
   handleAddList = e => {
-    const { dispatch } = this.props;
-    const { text } = this.state;
+    // const { dispatch } = this.props;
+    const { title } = this.state;
 
-    if (text) {
-      dispatch(addStatusList(text));
-      this.setState({ text: '' });
+    if (title) {
+      this.props.addStatusList({ title });
+      this.setState({ title: '' });
     }
 
     return;
@@ -77,7 +77,7 @@ class ActionButton extends Component {
 
   handleInputChange = e => {
     this.setState({
-      text: e.target.value
+      title: e.target.value
     });
   };
 
@@ -107,7 +107,7 @@ class ActionButton extends Component {
                 placeholder={placeHolder}
                 autoFocus
                 onBlur={this.closeForm}
-                value={this.state.text}
+                value={this.state.title}
                 onChange={this.handleInputChange}
                 style={{
                   resize: 'none',
@@ -164,4 +164,7 @@ class ActionButton extends Component {
   }
 }
 
-export default connect()(ActionButton);
+export default connect(
+  null,
+  { addStatusList }
+)(ActionButton);

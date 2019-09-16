@@ -1,9 +1,9 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-const AppCard = ({ application, id, index }) => {
+const AppCard = ({ application, applicationId, index }) => {
   return (
-    <Draggable draggableId={String(id)} index={index}>
+    <Draggable draggableId={applicationId} index={index}>
       {provided => (
         <div
           className="card border-primary mb-3"
@@ -14,16 +14,16 @@ const AppCard = ({ application, id, index }) => {
         >
           <div className="card-header">{application.position}</div>
           <div className="card-body">
-            <h4 className="card-title">{application.companyName}</h4>
+            <h4 className="card-title">{application.company_name}</h4>
             <p className="card-text">
               <small>Date Applied</small>:{' '}
-              <strong>{application.dateApplied}</strong>
+              <strong>{application.date_applied}</strong>
             </p>
             <p className="card-text">
               <small>Location</small>: {application.location}
             </p>
             <p className="card-text">
-              <small>Priority Level</small>: {application.priorityLevel}
+              <small>Priority Level</small>: {application.priority_level}
             </p>
           </div>
         </div>

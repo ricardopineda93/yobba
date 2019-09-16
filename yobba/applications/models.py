@@ -15,7 +15,7 @@ class Application(models.Model):
     date_applied = models.DateField(
         default=date.today(), blank=True)
     application_id = models.CharField(blank=True, max_length=100)
-    application_url = models.URLField(blank=True, unique=True)
+    application_url = models.URLField(blank=True)
     priority_level = models.CharField(max_length=25)
     company_contact_email = models.EmailField(blank=True)
     notes = models.TextField(blank=True)

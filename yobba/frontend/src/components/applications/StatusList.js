@@ -21,7 +21,7 @@ const StatusList = ({ title, applications, listId, index }) => {
                   <AppCard
                     application={application}
                     key={application.id}
-                    id={application.id}
+                    applicationId={application.id}
                     index={index}
                   />
                 ))}
