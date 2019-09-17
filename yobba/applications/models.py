@@ -1,6 +1,6 @@
 from django.db import models
 from lists.models import List
-# from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 from datetime import date
 
 # Create your models here.
@@ -23,8 +23,8 @@ class Application(models.Model):
     status_list = models.ForeignKey(
         List, related_name='applications', on_delete=models.CASCADE, null=True
     )
-    # owner = models.ForeignKey(
-    #     User, related_name='applications', on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(
+        User, related_name='applications', on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
