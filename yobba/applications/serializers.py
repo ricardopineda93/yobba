@@ -12,4 +12,4 @@ class ApplicationSerializer(serializers.ModelSerializer):
         model = Application
         fields = ('id', 'company_name', 'position', 'date_applied', 'application_id',
                   'application_url', 'priority_level', 'company_contact_email', 'notes', 'location',
-                  'status_list', 'application_id')
+                  'status_list', 'prefixed_app_id')

@@ -108,13 +108,8 @@ const listsReducer = (state = initialState, action) => {
     // Need to wrap in squigglies or else we get an arg name error with other case
     // newState const naming
     case CONSTANTS.ADD_APPLICATION: {
-      // const newApplication = {
-      //   id: `application-${applicationId}`,
-      //   ...action.payload.data
-      // };
-      // applicationId++;
       const newState = state.map(list => {
-        if (list.list_id === action.payload.status_list) {
+        if (list.id === action.payload.status_list) {
           return {
             ...list,
             applications: [...list.applications, action.payload]

@@ -20,8 +20,8 @@ const StatusList = ({ title, applications, listId, index }) => {
                 {applications.map((application, index) => (
                   <AppCard
                     application={application}
-                    key={application.id}
-                    applicationId={application.id}
+                    key={application.prefixed_app_id}
+                    prefixedAppId={application.prefixed_app_id}
                     index={index}
                   />
                 ))}

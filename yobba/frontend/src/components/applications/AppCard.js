@@ -1,9 +1,9 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-const AppCard = ({ application, applicationId, index }) => {
+const AppCard = ({ application, prefixedAppId, index }) => {
   return (
-    <Draggable draggableId={applicationId} index={index}>
+    <Draggable draggableId={prefixedAppId} index={index}>
       {provided => (
         <div
           className="card border-primary mb-3"

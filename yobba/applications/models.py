@@ -28,5 +28,5 @@ class Application(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def application_id(self):
+    def prefixed_app_id(self):
         return 'application-' + str(self.id)
