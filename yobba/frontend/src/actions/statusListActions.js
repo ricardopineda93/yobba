@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CONSTANTS } from '../actions';
+import { CONSTANTS, createMessage } from '../actions';
 
 export const getLists = () => dispatch => {
   axios
@@ -23,6 +23,9 @@ export const addStatusList = title => dispatch => {
   axios
     .post('/api/lists/', title, config)
     .then(res => {
+      dispatch(
+        createMessage({ addStatusList: `Status list '${title.title}' added!` })
+      );
       dispatch({
         type: CONSTANTS.ADD_STATUS_LIST,
         payload: res.data

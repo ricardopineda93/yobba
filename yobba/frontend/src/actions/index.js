@@ -1,6 +1,7 @@
 export * from './applicationActions';
 export * from './statusListActions';
 export * from './authActions';
+export * from './messages';
 
 export const CONSTANTS = {
   ADD_APPLICATION: 'ADD_APPLICATION',
