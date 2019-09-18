@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CONSTANTS, createMessage } from '../actions';
+import { CONSTANTS, createMessage, returnErrors } from '../actions';
 
 export const getLists = () => dispatch => {
   axios
@@ -10,7 +10,9 @@ export const getLists = () => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };
 
 export const addStatusList = title => dispatch => {
@@ -31,5 +33,7 @@ export const addStatusList = title => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };
