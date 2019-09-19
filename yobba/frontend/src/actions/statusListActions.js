@@ -1,9 +1,14 @@
 import axios from 'axios';
-import { CONSTANTS, createMessage, returnErrors } from '../actions';
+import {
+  CONSTANTS,
+  createMessage,
+  returnErrors,
+  tokenConfig
+} from '../actions';
 
-export const getLists = () => dispatch => {
+export const getLists = () => (dispatch, getState) => {
   axios
-    .get('/api/lists/')
+    .get('/api/lists/', tokenConfig(getState))
     .then(res => {
       dispatch({
         type: CONSTANTS.GET_LISTS,
@@ -15,15 +20,9 @@ export const getLists = () => dispatch => {
     );
 };
 
-export const addStatusList = title => dispatch => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
-
+export const addStatusList = title => (dispatch, getState) => {
   axios
-    .post('/api/lists/', title, config)
+    .post('/api/lists/', title, tokenConfig(getState))
     .then(res => {
       dispatch(
         createMessage({ addStatusList: `Status list '${title.title}' added!` })

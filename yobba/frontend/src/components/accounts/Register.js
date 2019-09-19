@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-// import { register } from '../../actions/auth';
+import { register, createMessage } from '../../actions';
 import { connect } from 'react-redux';
-// import { createMessage } from '../../actions/messages';
 
 export class Register extends Component {
   state = {
@@ -20,20 +19,19 @@ export class Register extends Component {
   // };
   onSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
-    // const { password, password2, username, email } = this.state;
-    // if (password !== password2) {
-    // 	this.props.createMessage({
-    // 		passwordsNotMatch: 'Passwords do not match!'
-    // 	});
-    // } else {
-    // 	const newUser = {
-    // 		username,
-    // 		password,
-    // 		email
-    // 	};
-    // 	this.props.register(newUser);
-    // }
+    const { password, password2, username, email } = this.state;
+    if (password !== password2) {
+      this.props.createMessage({
+        passwordsNotMatch: 'Passwords do not match!'
+      });
+    } else {
+      const newUser = {
+        username,
+        password,
+        email
+      };
+      this.props.register(newUser);
+    }
   };
 
   onChange = e => {
@@ -41,9 +39,9 @@ export class Register extends Component {
   };
 
   render() {
-    // if (this.props.isAuthenticated) {
-    //   return <Redirect to="/" />;
-    // }
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
     const { username, email, password, password2 } = this.state;
     return (
       <div className="col-md-6 m-auto">
@@ -110,6 +108,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps
-  // ,{ register, createMessage }
+  mapStateToProps,
+  { register, createMessage }
 )(Register);

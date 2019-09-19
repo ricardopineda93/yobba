@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
+import { logout } from '../../actions';
+
 class Header extends Component {
   render() {
     const { isAuthenticated, user } = this.props.auth;
@@ -68,6 +70,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps
-  // ,{ logout }
+  mapStateToProps,
+  { logout }
 )(Header);

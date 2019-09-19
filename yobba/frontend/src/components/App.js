@@ -18,6 +18,9 @@ import Board from './applications/Board';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
 import Alerts from './layout/Alerts';
+import PrivateRoute from './common/PrivateRoute';
+
+import { loadUser } from '../actions/';
 
 const alertOptions = {
   timeout: 3000,
@@ -25,6 +28,9 @@ const alertOptions = {
 };
 
 export default class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
   render() {
     return (
       <Provider store={store}>
@@ -35,10 +41,9 @@ export default class App extends Component {
               <Alerts />
               <div>
                 <Switch>
-                  {/* <PrivateRoute exact path="/" component={Board} /> */}
+                  <PrivateRoute exact path="/" component={Board} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/register" component={Register} />
-                  <Route exact path="/" component={Board} />
                 </Switch>
               </div>
             </Fragment>

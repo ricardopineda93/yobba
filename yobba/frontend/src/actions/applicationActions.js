@@ -1,14 +1,12 @@
 import axios from 'axios';
-import { CONSTANTS, createMessage } from '../actions';
+import { CONSTANTS, createMessage, tokenConfig } from '../actions';
 
-export const addApplication = (listId, newApplication) => dispatch => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  };
+export const addApplication = (listId, newApplication) => (
+  dispatch,
+  getState
+) => {
   axios
-    .post('/api/applications/', newApplication, config)
+    .post('/api/applications/', newApplication, tokenConfig(getState))
     .then(res => {
       dispatch(
         createMessage({
